@@ -11,39 +11,50 @@ import java.util.List;
 
 public class PerimeterCalculator {
 
-    public PerimeterCalculator () {}
+  public PerimeterCalculator () {}
 
-    public double calculatePerimeter(Shape s) {
-        // Definir la variable que acumule el perimetro
+  public double calculatePerimeter(Shape s) {
+    // Definir la variable que acumule el perimetro
+    double perimeter = 0;
 
-        List<Point> points = s.getPoints();
-        Point prevPoint = points.getLast();
+    List<Point> points = s.getPoints();
+    Point prevPoint = points.getLast();
 
-        for (Point point : points) {
-            // Obtener la distancia de los lados
-            // Ayuda: prevPoint.distancia(point)
+    for (Point point : points) {
+      // Obtener la distancia de los lados
 
-            prevPoint = point;
-        }
+      // Ayuda: prevPoint.distancia(point)
+      double distance = prevPoint.distancia(point);
+      perimeter += distance;
 
-        // Retornar la variable del perimetro
+      prevPoint = point;
     }
 
-    public int getTotalPoints(Shape s) {
-        // Definir la variable para el total de puntos
-        for(Point point: s.getPoints()) {
-            // Acumular el total de puntos
-        }
+    // Retornar la variable del perimetro
+    return perimeter;
+  }
 
-        // Retornas el valor de puntos
+  public int getTotalPoints(Shape s) {
+    // Definir la variable para el total de puntos
+    int totalPoints = 0;
+
+    for(Point point: s.getPoints()) {
+      // Acumular el total de puntos
+      totalPoints++;
+
     }
 
-    public static void main (String[] args) {
-        PerimeterCalculator perimeterCalculator = new PerimeterCalculator();
-        // Definit el nombre del archivo
-        Shape shape = new Shape();
+    // Retornas el valor de puntos
+    return totalPoints;
+  }
 
-        shape.readPoints("nombre_archivo");
-        // Mostrar el valor de calculatePerimeter y getTotalPoints
-    }
+  public static void main (String[] args) {
+    PerimeterCalculator perimeterCalculator = new PerimeterCalculator();
+    // Definit el nombre del archivo
+    String fileName = "square.txt";
+    Shape shape = new Shape();
+
+    shape.readPoints("nombre_archivo");
+    // Mostrar el valor de calculatePerimeter y getTotalPoints
+  }
 }
