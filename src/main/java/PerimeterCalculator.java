@@ -4,7 +4,6 @@ import java.util.List;
 
 /**
  * Este codigo permite calcular el perimetro de figuras de N >= 3 lados
- * Figuras de ejemplo:
  * - square.txt - lado de 4
  * - triangle.txt - base de 4, altura de 4
  */
